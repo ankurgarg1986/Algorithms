@@ -1,5 +1,15 @@
 package graphs;
 
+/**
+ * 
+ * @author agarg
+ * Dijiktra Algorithm for computing shortest path from Source to all Vertices in an undirected Graph.
+ * This is similar to Prim's Algorithm for computing Minimum Spanning Tree.
+ * This algo can't be used if there are negative weight edges in the graph.
+ * Complexity of this algorithm is O(V^2).
+ * 
+ * For negative Weighted edges , Bellman Ford should be used .
+ */
 public class DijShortestPath {
 
 	static int maxm = 9999;
@@ -44,6 +54,7 @@ public class DijShortestPath {
 	      {
 	    	  System.out.println("To " + i + " Distance is = " + keySet[i]);
 	      }
+		 
 		
 	}
 
