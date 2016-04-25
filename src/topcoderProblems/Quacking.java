@@ -2,7 +2,6 @@ package topcoderProblems;
 
 import java.util.LinkedList;
 import java.util.List;
-
 /**
  * 
  * @author agarg
