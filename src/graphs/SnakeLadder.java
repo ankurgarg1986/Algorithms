@@ -14,6 +14,12 @@ class QueueEntry {
 	}
 }
 
+/**
+ * Solution to classic Snake And Ladder Problem stated here
+ * http://www.geeksforgeeks.org/snake-ladder-problem-2/
+ * @author agarg
+ *
+ */
 public class SnakeLadder {
 
 	private static int getMinDiceThrows(int[] moves, int N) {
