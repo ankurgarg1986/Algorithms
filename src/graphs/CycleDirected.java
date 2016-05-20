@@ -3,7 +3,12 @@ package graphs;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-
+/**
+ * 
+ * @author agarg
+ *  Code for detecting cycle in a directed Graph
+ *  http://www.geeksforgeeks.org/detect-cycle-in-a-graph/
+ */
 class G3
 {
 	int v;
