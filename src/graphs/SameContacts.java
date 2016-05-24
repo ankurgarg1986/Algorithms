@@ -7,6 +7,9 @@ import java.util.Queue;
 /**
  * 
  * @author agarg
+ * http://www.geeksforgeeks.org/find-same-contacts-in-a-list-of-contacts/
+ * Code to find same contacts in list of contacts
+ * the link above uses DFS. This code uses BFS
  *
  */
 class Contact

@@ -25,6 +25,11 @@ class G4 {
 		adjList[u].add(v);
 		adjList[v].add(u);
 	}
+	
+	public void addDirectedEdge(int u, int v) {
+		adjList[u].add(v);
+		//adjList[v].add(u);
+	}
 
 	public boolean isCyclic() {
 		boolean[] vis = new boolean[V];
