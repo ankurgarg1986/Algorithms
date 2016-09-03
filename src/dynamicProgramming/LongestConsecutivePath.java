@@ -3,7 +3,7 @@ package dynamicProgramming;
 public class LongestConsecutivePath {
 
 	public static void main(String[] args) {
-		char[][] mat = { { 'a', 'c', 'd' }, { 'h', 'b', 'e' },
+		char[][] mat = { { 'a', 'c', 'd' }, { 'h', 'x', 'e' },
 				{ 'i', 'g', 'f' } };
 		System.out.println(getLen(mat, 'a'));
 		System.out.println(getLenDynamic(mat, 'a'));
@@ -87,7 +87,7 @@ public class LongestConsecutivePath {
 		int[] dx = { -1, -1, -1, 0,  0, 1, 1, 1 };
 		int[] dy = { -1, 0, 1, -1,  1, -1, 0, 1 };
 		int ans = 1;
-		int i, j;
+		int i;
 		for (i = 0; i < 8; i++) {
 			int x = x1 + dx[i];
 			int y = y1 + dy[i];

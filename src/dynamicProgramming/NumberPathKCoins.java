@@ -9,8 +9,21 @@ public class NumberPathKCoins {
 	                      {4, 2, 1}
 	                  };
 	    System.out.println(pathCountRecursive(mat, k));
+	    System.out.println(pathCountDynamic(mat, k));
 	 //   return 0;
 
+	}
+
+	/** 
+	 * DP to solve number of Paths with k coins
+	 * @param mat
+	 * @param k
+	 * @return
+	 */
+	private static int pathCountDynamic(int[][] mat, int k) {
+		int ans = 0;
+		
+		return ans;
 	}
 
 	private static int pathCountRecursive(int[][] mat, int k) {

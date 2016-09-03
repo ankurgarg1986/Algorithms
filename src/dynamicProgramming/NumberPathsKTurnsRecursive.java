@@ -4,7 +4,6 @@ public class NumberPathsKTurnsRecursive {
 	public static void main(String[] args) {
 		int m = 3, n = 3, k = 2;
 		System.out.println("Number of paths is " + countPaths(m - 1, n - 1, k));
-
 	}
 
 	private static int countPathsHelper(int i, int j, int m, int n, int k) {

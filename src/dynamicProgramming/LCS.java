@@ -10,15 +10,17 @@ public class LCS {
 		int n = y.length();
 		System.out.println(lcsRecursive(x, y, 0,0,m, n));
 		System.out.println(lcsDynamic(x, y,m, n));
+		//System.out.println(lcsDynamicSpaceOptimized(x, y,m, n));
 
 	}
+
 
 	private static int lcsDynamic(String x, String y, int m,int n) {
 		int[][] dp = new int[m+1][n+1];//dp[i][j] gives lcsPath from i to j
 		int i,j;
 		dp[0][0] = 0;
 		for(i=0;i<m;i++)
-		{
+		{	
 			for(j=0;j<n;j++)
 				dp[i][j] = 0;
 		}
