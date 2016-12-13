@@ -9,7 +9,17 @@ public class FreeIceCream {
 	
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	try{
+	  int c  = 4/0;
+	  
+	}catch(Exception e){
+	  System.out.println("Exception");
+	}finally{
+	  System.out.println("Finally");
+	}
+	  
+	  
+	  // TODO Auto-generated method stub
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String s;
 		//long x = 0;

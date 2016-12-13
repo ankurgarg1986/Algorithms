@@ -6,6 +6,10 @@ public class Island {
   public static void main(String[] args) throws java.lang.Exception {
     int M[][] = new int[][] { { 1, 1, 0, 0, 0 }, { 0, 1, 0, 0, 1 }, { 1, 0, 0, 1, 1 }, { 0, 0, 0, 0, 0 },
                              { 1, 1, 1, 1, 1 } };
+    String s1 = "ab" + "c";
+    String s2 = "a" + "bc";
+    System.out.println(s1 ==s2);
+    s1.equals(s2);
     Island I = new Island();
     System.out.println("Number of islands is: " + I.countIslands(M));
   }
