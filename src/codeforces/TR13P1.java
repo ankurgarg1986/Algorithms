@@ -1,39 +1,67 @@
 package codeforces;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.math.BigInteger;
-import java.util.Arrays;
-import java.util.InputMismatchException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 
-public class C382P3 {
+
+public class TR13P1 {
 
   public static void main(String[] args) {
     FastReader sc = new FastReader(System.in);
-    int n = sc.nextInt();
-    int n1 = sc.nextInt();
-    int n2 = sc.nextInt();
-    int[] a = new int[n];
-    int i;
-    for(i=0;i<n;i++){
-      a[i] = sc.nextInt();
+    int n  = sc.nextInt();
+    Map<Integer,ArrayList<Integer>> hm = new HashMap<Integer,ArrayList<Integer>>();
+    Map<Integer,ArrayList<ArrayList<Integer>>> hm1 = new HashMap<Integer,ArrayList<ArrayList<Integer>>>();
+    int[] dp = new int[n+1];
+    dp[0]= 0;
+    dp[1] = 1;
+    ArrayList<Integer> l = new ArrayList<Integer>();
+    l.add(1);
+    hm.put(1,l);
+    dp[2] = 1;
+    l = new ArrayList<Integer>();
+    l.add(2);
+    hm.put(2, l);
+    int i,j;
+    ArrayList<ArrayList<Integer>> ans  = new ArrayList<ArrayList<Integer>>();
+    for(i=3;i<=n;i++) {
+        dp[i] = 2;
+        l = new ArrayList<Integer>();
+        l.add(1);
+        l.add(i-1);
+        ans.add(l);
+        hm.put(i,l);
+        hm1.put(i,ans);
     }
-    Arrays.sort(a);
-    int b = Math.min(n1, n2);
-    double val = 0;
-    for(i=1;i<=b;i++){
-       val += a[n-i];
+    for(i=3;i<=n;i++){
+//      l = new ArrayList<Integer>();
+//      hm.put(i, l);
+      for(j=1;j<i;j++){
+//         if(i-j !=j){
+//           l = new ArrayList<Integer>();
+//           l.add(i-j);
+//           l.add(j);
+//           hm.put(i, l);
+//           dp[i] = Math.max(dp[i], l.size());
+//         }
+         if(i-j !=j && !hm.get(i-j).contains(j) &&  !hm.get(j).contains(i-j) && (hm.get(i-j).size() + hm.get(j).size() > l.size())){
+           l = new ArrayList<Integer>();
+           l.addAll(hm.get(i-j));
+           l.addAll(hm.get(j));
+           hm.put(i,l);
+           dp[i] = Math.max(dp[i], l.size());
+         }
+      }
     }
-    val = val/b;
-    double val1 = 0;
-    int c = Math.max(n1,n2);
-    while(i<=c + b){
-      val1 += a[n-i];
-      i++;
+    System.out.println(dp[n]);
+    ArrayList<Integer> ll = hm.get(n);
+    Iterator<Integer> it = ll.listIterator();
+    while(it.hasNext()){
+      System.out.print(it.next() + " ");
     }
-    val1 = val1/c;
-    System.out.println(val + val1);
+
   }
 
 }
