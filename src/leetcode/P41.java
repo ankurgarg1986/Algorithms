@@ -3,12 +3,29 @@ package leetcode;
 public class P41 {
 
   public static void main(String[] args) {
-    int[] a ={1,-2,3,-7,-11,2};
+    int[] a ={0,1,2};
     int n = a.length;
-    System.out.println(findMissingPositive(a, n));
+   // System.out.println(findMissingPositive(a, n));
+    System.out.println(firstMissingPositive(a));
 
   }
-
+  public static int firstMissingPositive(int[] a) {
+    int n = a.length;
+    int i;
+    for(i=0;i<n;i++){
+        while(a[i] > 0 && a[i]<=n && a[a[i]-1]!=a[i]){
+            int temp = a[a[i]-1];
+            a[a[i]-1] = a[i];
+            a[i] = temp;
+        }
+    }
+    for(i=0;i<n;i++){
+        if(a[i] != i+1)
+         return i+1;
+    }
+    return i+1;
+    
+}
   private static int findMissingPositive(int[] a, int n) {
     int pivot = segregate(a, n);
     return findMissingPositiveHelper(a, pivot +1);
