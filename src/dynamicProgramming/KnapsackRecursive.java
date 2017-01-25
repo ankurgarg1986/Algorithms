@@ -25,5 +25,21 @@ public class KnapsackRecursive {
     int W = 50;
     int n = val.length;
     System.out.println(knapSack(W, wt, val, 0, n));
+    System.out.println(knapSackDP(W, wt, val,n));
+  }
+
+  private static int knapSackDP(int w, int[] wt, int[] val,  int n) {
+    int[] dp = new int[w+1];
+    int i=0,j;
+    for(i=0;i<=n;i++){
+      dp[wt[i]] = val[i];
+    }
+    for(i=0;i<=w;i++){
+      for(j=0;j<n;j++){
+        if(i-wt[j] >= 0)
+          dp[i] = Math.max(dp[i], dp[i-wt[j]] + dp[wt[j]]);
+      }
+    }
+    return dp[w];
   }
 }

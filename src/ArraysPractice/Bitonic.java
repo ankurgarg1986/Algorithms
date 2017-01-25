@@ -39,9 +39,15 @@ class Bitonic
     /*Driver function to check for above function*/
     public static void main (String[] args)
     {
+        int x = (int) (3*Math.pow(10, 8));
+        int[] a = new int[x];
+        Arrays.fill(a, 1);
+        for(int i=0;i<x;i++){
+          System.out.println(a[i]);
+        }
         int arr[] = {12, 4, 78, 90, 45, 23};
         int n = arr.length;
-        System.out.println("Length of max length Bitnoic Subarray is "
-                            + bitonic(arr, n));
+       // System.out.println("Length of max length Bitnoic Subarray is "
+         //                   + bitonic(arr, n));
     }
 }

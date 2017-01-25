@@ -13,7 +13,7 @@ package trees;
 class Node 
 {
     int data;
-    Node left, right;
+    CNode left, right;
  
     public Node(int data) 
     {
@@ -37,13 +37,13 @@ public class BinaryFromPostIn
        be 0 and n -1.  The function doesn't do any error
        checking for cases where inorder and postorder
        do not form a tree */
-    Node buildTreeUtil(int in[], int post[], int s,
+    CNode buildTreeUtil(int in[], int post[], int s,
             int e) 
     {
         if(s > e || i<0) return null;
         int rootVal = post[i];
         i--;
-        Node root = new Node(rootVal);
+        CNode root = new CNode(rootVal);
         int idx = search(in,s,e,rootVal);
         root.right = buildTreeUtil(in,post,idx+1,e); 
         root.left =  buildTreeUtil(in,post,s,idx-1);
@@ -53,7 +53,7 @@ public class BinaryFromPostIn
  
     // This function mainly initializes index of root
     // and calls buildUtil()
-    Node buildTree(int in[], int post[], int n) 
+    CNode buildTree(int in[], int post[], int n) 
     {
       i = n-1;
       return buildTreeUtil(in,post,0,n-1);
@@ -73,7 +73,7 @@ public class BinaryFromPostIn
     }
  
     /* This funtcion is here just to test  */
-    void preOrder(Node node) 
+    void preOrder(CNode node) 
     {
         if (node == null)
             return;
@@ -88,7 +88,7 @@ public class BinaryFromPostIn
         int in[] = new int[]{4, 8, 2, 5, 1, 6, 3, 7};
         int post[] = new int[]{8, 4, 5, 2, 6, 7, 3, 1};
         int n = in.length;
-        Node root = tree.buildTree(in, post, n);
+        CNode root = tree.buildTree(in, post, n);
         System.out.println("Preorder of the constructed tree : ");
         tree.preOrder(root);
     }

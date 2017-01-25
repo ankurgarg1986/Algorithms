@@ -1,66 +1,54 @@
 package codeforces;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.math.BigInteger;
-import java.util.InputMismatchException;
 
 public class C367P3 {
+
+  static long inf = (long) (1e15 + 15);
 
   public static void main(String[] args) {
     FastReader2 sc = new FastReader2(System.in);
     int n = sc.nextInt();
-    int[] c = new int[n];
+    long[] cost = new long[n];
     int i;
     for (i = 0; i < n; i++)
-      c[i] = sc.nextInt();
+      cost[i] = sc.nextLong();
     String[] s = new String[n];
     for (i = 0; i < n; i++)
       s[i] = sc.nextString();
-    int c1 = 0, c2 = 0, c12 = 0;
-    int ans = 0;
-    for (i = 0; i < n - 1; i++) {
-      if (s[i].compareTo(s[i + 1]) > 0) {
-        // s[i] is greater than s[i+1]
-        StringBuilder input1 = new StringBuilder();
-        input1.append(s[i]);
-        input1 = input1.reverse();
-        String s1 = input1.toString();
-        c1 = c[i];
-        StringBuilder input2 = new StringBuilder();
-        input2.append(s[i + 1]);
-        input2 = input2.reverse();
-        String s2 = input2.toString();
-        c2 = c[i + 1];
-        c12 = c[i] + c[i + 1];
-        if (s1.compareTo(s[i + 1]) <= 0 && (s[i].compareTo(s2) <= 0)) {
-          ans += Math.min(c1, c2);
-          if (c1 < c2) {
-            s[i] = s1;
-          } else {
-            s[i + 1] = s2;
-          }
-        } else if (s1.compareTo(s[i + 1]) <= 0) {
-          ans += c1;
-          s[i] = s1;
-        } else if (s[i].compareTo(s2) <= 0) {
-          ans += c2;
-          s[i + 1] = s2;
-        } else if (s1.compareTo(s2) <= 0) {
-          // reverse both
-         
-          ans += c12;
-          s[i] = s1;
-          s[i + 1] = s2;
-        }
-        if (s[i].compareTo(s[i + 1]) > 0) {
-          System.out.println( -1);
-          return;
-        }
-
-      }
+    long[][] dp = new long[n][2];
+    for (i = 0; i < n; i++) {
+      dp[i][0] = inf;// Integer.MAX_VALUE;
+      dp[i][1] = inf;
     }
-    System.out.println(ans);
+    dp[0][0] = 0;
+    dp[0][1] = cost[0];
+    for (i = 1; i < n; i++) {
+      String s1 = s[i - 1];
+      String s2 = s[i];
+      StringBuilder sb = new StringBuilder(s1);
+      String s1r = sb.reverse().toString();// reverse s1
+      StringBuilder sb1 = new StringBuilder(s2);
+      String s2r = sb1.reverse().toString();// reverse s2
+      if (s1.compareTo(s2) <= 0) {
+        // sorted
+        dp[i][0] = Math.min(dp[i][0], dp[i - 1][0]);
+      }
+      if (s1r.compareTo(s2) <= 0) {
+        // sorted
+        // dp[i][1] = Math.min(dp[i][1], cost[i] + dp[i-1][0]);
+        dp[i][0] = Math.min(dp[i][0], dp[i - 1][1]);
+      }
+      if (s1r.compareTo(s2r) <= 0) {
+        dp[i][1] = Math.min(dp[i][1], cost[i] + dp[i - 1][1]);
+      }
+      if (s1.compareTo(s2r) <= 0) {
+        dp[i][1] = Math.min(dp[i][1], cost[i] + dp[i - 1][0]);
+      }
+
+    }
+    long res = Math.min(dp[n - 1][0], dp[n - 1][1]);
+    res = (res >= inf) ? -1 : res;
+    System.out.println(res);
 
   }
 
