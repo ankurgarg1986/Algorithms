@@ -10,17 +10,6 @@ package trees;
 //
 //}
 
-class Node 
-{
-    int data;
-    CNode left, right;
- 
-    public Node(int data) 
-    {
-        this.data = data;
-        left = right = null;
-    }
-}
  
 // Class Index created to implement pass by reference of Index
 class Index 

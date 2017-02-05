@@ -23,6 +23,7 @@ public class P501 {
     int maxFrequency = 1;
     int maxElement = root.val;
     findModeHelper(root, ans, maxFrequency, maxElement, 1, root.val);
+    return null;
 
   }
 
