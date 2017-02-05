@@ -6,6 +6,8 @@ public class C367P3 {
   static long inf = (long) (1e15 + 15);
 
   public static void main(String[] args) {
+    String s4 = "abc";
+    System.out.println(s4.substring(0,0));
     FastReader2 sc = new FastReader2(System.in);
     int n = sc.nextInt();
     long[] cost = new long[n];
