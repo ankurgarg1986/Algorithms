@@ -19,8 +19,8 @@ public class Decrementer implements Runnable {
       Thread.sleep(1000);
       this.latch.countDown();
 
-//      Thread.sleep(3000);
-//      this.latch.countDown();
+      Thread.sleep(3000);
+      this.latch.countDown();
   } catch (InterruptedException e) {
       e.printStackTrace();
   }

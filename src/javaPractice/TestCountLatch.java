@@ -7,6 +7,7 @@ public class TestCountLatch {
 
   public static void main(String[] args) throws InterruptedException {
     CustomLatch latch = new CustomLatch(3);
+  //  CustomLatch latch2 = new CustomLatch(3);
 
     Waiter      waiter      = new Waiter(latch);
     Decrementer decrementer = new Decrementer(latch);
