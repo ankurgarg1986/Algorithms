@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
-public class P140 {
+public class P140WordBreakII {
 
   public static List<String> wordBreak(String s, Set<String> wordDict) {
     return DFS(s, wordDict, new HashMap<String, LinkedList<String>>());

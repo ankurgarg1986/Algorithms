@@ -13,7 +13,7 @@ import java.util.Set;
  * @author agarg
  *
  */
-public class P139 {
+public class P139WordBreak {
 
   public static boolean wordBreak(String s, List<String> wordDict) {
     int i, j;
