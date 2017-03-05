@@ -26,7 +26,7 @@ public class Contest21P1 {
   }
   private void getMinimumDifferenceHelper(TreeNode root, List<Integer> list) {
     if(root == null) return ;
-    getMinimumDifference( root.left,list);
+    getMinimumDifference(root.left,list);
     list.add(root.val);
     getMinimumDifference( root.right,list);
     
